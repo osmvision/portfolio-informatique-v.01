@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio d'Oussama Abid - Développeur Full Stack C#, .NET & Expert en Intelligence Artificielle">
-    <title>Oussama Abid | C# Full Stack & AI Engineer</title>
+    <meta name="description" content="Portfolio d'Oussama Abid - Développeur Full Stack">
+    <title>Oussama Abid | Full Stack Developer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Couleurs Tech : Violet (C#) et Cyan (IA) */
             --primary: #8b5cf6; 
-            --primary-dark: #7c3aed;
-            --secondary: #06b6d4; /* Couleur Cyan pour l'IA */
+            --secondary: #06b6d4;
             --bg-dark: #0f172a;
-            --bg-card: rgba(30, 41, 59, 0.6);
+            --bg-card: rgba(30, 41, 59, 0.7);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --gradient: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
@@ -31,7 +29,7 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
-            cursor: none; /* Curseur personnalisé activé */
+            cursor: none;
         }
 
         /* --- Curseur --- */
@@ -52,14 +50,16 @@
             position: fixed; top: 0; width: 100%;
             padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; backdrop-filter: blur(12px);
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.85);
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .logo {
-            font-size: 1.5rem; font-weight: 900;
+            font-family: 'Permanent Marker', cursive; /* Style Street */
+            font-size: 1.8rem; 
             background: var(--gradient);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
         }
 
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -74,44 +74,84 @@
         }
         .nav-links a:hover::after { width: 100%; }
 
-        /* --- Hero --- */
+        /* --- Hero Section (Modifiée pour Photo) --- */
         .hero {
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            position: relative; padding: 0 5%; overflow: hidden;
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 8rem 5% 0; /* Padding top pour la nav */
+            position: relative; 
+            overflow: hidden;
+            flex-wrap: wrap; /* Pour le mobile */
+            gap: 4rem;
         }
-        
+
         .hero::before {
             content: ''; position: absolute; width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
             top: -100px; left: -100px; filter: blur(80px);
             animation: pulse 10s infinite alternate;
         }
-        .hero::after {
-            content: ''; position: absolute; width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
-            bottom: 0; right: 0; filter: blur(80px);
-            animation: pulse 8s infinite alternate-reverse;
+
+        .hero-content { 
+            flex: 1;
+            min-width: 300px;
+            z-index: 2; 
         }
 
-        .hero-content { text-align: center; z-index: 2; max-width: 900px; }
+        /* Cadre Photo Style Hip Hop/Cartoon */
+        .hero-image-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%; /* Cercle */
+            border: 5px solid #0f172a; /* Bordure interne sombre */
+            /* Double lueur style néon/street */
+            box-shadow: 
+                0 0 0 5px var(--primary),
+                0 0 20px 10px rgba(6, 182, 212, 0.4),
+                0 0 60px 20px rgba(139, 92, 246, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
 
         .hero-badge {
             display: inline-block; padding: 0.5rem 1.5rem;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
-            border-radius: 50px; color: #67e8f9;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px; color: var(--secondary);
             font-size: 0.9rem; margin-bottom: 1.5rem;
             letter-spacing: 1px; text-transform: uppercase;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            line-height: 1.1; margin-bottom: 1.5rem; font-weight: 800;
+            font-family: 'Permanent Marker', cursive;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.1; margin-bottom: 0.5rem; 
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            transform: rotate(-2deg); /* Légère rotation style sticker */
         }
 
-        .text-gradient {
-            background: var(--gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem; color: var(--text-muted);
+            margin-bottom: 2.5rem; line-height: 1.6; max-width: 600px;
         }
 
         .btn {
@@ -151,12 +191,8 @@
         /* --- Compétences --- */
         .skill-item { margin-bottom: 1.5rem; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #e2e8f0; }
-        .progress-bar {
-            width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;
-        }
-        .progress {
-            height: 100%; background: var(--gradient); border-radius: 4px; width: 0; transition: width 1.5s ease;
-        }
+        .progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress { height: 100%; background: var(--gradient); border-radius: 4px; width: 0; transition: width 1.5s ease; }
 
         /* --- GitHub Repos --- */
         .repo-card { display: flex; flex-direction: column; }
@@ -175,10 +211,19 @@
             0% { transform: scale(1); opacity: 0.5; }
             100% { transform: scale(1.1); opacity: 0.8; }
         }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
 
         @media (max-width: 768px) {
             .nav-links, .cursor-dot, .cursor-outline { display: none; }
             body { cursor: auto; }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 6rem; gap: 2rem; }
+            .hero-content { width: 100%; }
+            .profile-img { width: 250px; height: 250px; }
+            .hero p { margin: 0 auto 2rem; }
             .btn { width: 100%; margin: 0.5rem 0; justify-content: center; }
             .btn-secondary { margin-left: 0; }
         }
@@ -193,7 +238,7 @@
         <div class="logo">O.ABID</div>
         <ul class="nav-links">
             <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#competences">Skills</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#github-repos">GitHub</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -203,68 +248,32 @@
     <section class="hero" id="accueil">
         <div class="hero-content">
             <span class="hero-badge">Stage : Avril 2026</span>
-            <h1>Développeur C# Full Stack<br><span class="text-gradient">& Ingénieur IA</span></h1>
-            <p style="font-size: 1.2rem; color: #94a3b8; margin-bottom: 2rem;">
-                Je conçois des architectures logicielles robustes et j'intègre l'intelligence artificielle pour créer des solutions de demain.
+            
+            <h1>OUSSAMA ABID</h1>
+            <h2>DÉVELOPPEUR FULL STACK</h2>
+            
+            <p>
+                Passionné par le code propre, les interfaces modernes et l'innovation numérique. 
+                Je transforme des idées complexes en solutions web et mobiles performantes.
             </p>
             <div>
                 <a href="#projets" class="btn btn-primary">Voir mon Portfolio <i class="fas fa-arrow-right"></i></a>
                 <a href="#contact" class="btn btn-secondary">Me Contacter</a>
             </div>
         </div>
+
+        <div class="hero-image-container">
+            <img src="avatar.jpg" alt="Oussama Abid Avatar" class="profile-img">
+        </div>
     </section>
 
     <section id="competences">
         <div class="section-header">
-            <h2 class="section-title">Expertise Technique</h2>
-            <p class="section-subtitle">Maîtrise du développement logiciel et de l'intelligence artificielle</p>
+            <h2 class="section-title">Mes Compétences</h2>
+            <p class="section-subtitle">Développement • Logiciel • Data</p>
         </div>
         
         <div class="grid-3">
-            <div class="glass-card">
-                <i class="fab fa-microsoft fa-2x" style="color: #a855f7; margin-bottom: 1.5rem;"></i>
-                <h3 style="margin-bottom: 1.5rem; color: #d8b4fe;">Écosystème C# / .NET</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-info"><span>C# & .NET Core</span><span>95%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>ASP.NET Web API</span><span>90%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>Architecture Logicielle</span><span>85%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>SQL Server / Entity Framework</span><span>88%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="88%"></div></div>
-                </div>
-            </div>
-
-            <div class="glass-card" style="border: 1px solid rgba(6, 182, 212, 0.3);">
-                <i class="fas fa-brain fa-2x" style="color: #22d3ee; margin-bottom: 1.5rem;"></i>
-                <h3 style="margin-bottom: 1.5rem; color: #67e8f9;">IA & Machine Learning</h3>
-                
-                <div class="skill-item">
-                    <div class="skill-info"><span>Machine Learning (Algorithmes)</span><span>90%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="90%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>Python Data Science (Pandas)</span><span>92%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="92%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>Computer Vision / Signal</span><span>85%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="85%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>Deep Learning Basics</span><span>80%</span></div>
-                    <div class="progress-bar"><div class="progress" data-width="80%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
-                </div>
-            </div>
-
             <div class="glass-card">
                 <i class="fas fa-globe fa-2x" style="color: #f472b6; margin-bottom: 1.5rem;"></i>
                 <h3 style="margin-bottom: 1.5rem; color: #fbcfe8;">Full Stack Web</h3>
@@ -282,13 +291,45 @@
                     <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
                 </div>
             </div>
+
+            <div class="glass-card">
+                <i class="fab fa-microsoft fa-2x" style="color: #a855f7; margin-bottom: 1.5rem;"></i>
+                <h3 style="margin-bottom: 1.5rem; color: #d8b4fe;">Écosystème C# / .NET</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>C# & .NET Core</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>ASP.NET Web API</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>SQL Server</span><span>88%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="88%"></div></div>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <i class="fas fa-brain fa-2x" style="color: #22d3ee; margin-bottom: 1.5rem;"></i>
+                <h3 style="margin-bottom: 1.5rem; color: #67e8f9;">Intelligence Artificielle</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Machine Learning Basics</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="90%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Python Data Science</span><span>92%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="92%" style="background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div></div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="projets">
         <div class="section-header">
             <h2 class="section-title">Projets Académiques</h2>
-            <p class="section-subtitle">Réalisations majeures durant mon cursus</p>
+            <p class="section-subtitle">Réalisations majeures</p>
         </div>
 
         <div class="grid-3">
@@ -297,7 +338,7 @@
                     <i class="fas fa-fingerprint folder-icon"></i>
                 </div>
                 <h3 class="repo-title">Coffre-Fort Intelligent</h3>
-                <p class="repo-desc">Système de sécurité embarqué intégrant RFID et biométrie, simulé avec précision.</p>
+                <p class="repo-desc">Système de sécurité embarqué intégrant RFID et biométrie.</p>
                 <div class="repo-stats">
                     <span style="color: #22d3ee;">Arduino / C++</span>
                 </div>
@@ -308,9 +349,9 @@
                     <i class="fas fa-wave-square folder-icon"></i>
                 </div>
                 <h3 class="repo-title">Traitement du Signal</h3>
-                <p class="repo-desc">Algorithmes Python pour le traitement, la modulation et le transfert de données audio.</p>
+                <p class="repo-desc">Algorithmes Python pour le traitement audio.</p>
                 <div class="repo-stats">
-                    <span style="color: #22d3ee;">Python / NumPy</span>
+                    <span style="color: #22d3ee;">Python</span>
                 </div>
             </div>
 
@@ -319,7 +360,7 @@
                     <i class="fas fa-database folder-icon"></i>
                 </div>
                 <h3 class="repo-title">Base de Données Voyage</h3>
-                <p class="repo-desc">Architecture SQL complexe optimisée pour la gestion de réservations touristiques.</p>
+                <p class="repo-desc">Architecture SQL optimisée pour la gestion touristique.</p>
                 <div class="repo-stats">
                     <span style="color: #22d3ee;">SQL Server</span>
                 </div>
@@ -330,11 +371,11 @@
     <section id="github-repos" style="background: rgba(0,0,0,0.2);">
         <div class="section-header">
             <h2 class="section-title">Open Source & GitHub</h2>
-            <p class="section-subtitle">Mes derniers projets publics récupérés automatiquement</p>
+            <p class="section-subtitle">Projets récupérés automatiquement</p>
         </div>
         
         <div class="grid-3" id="repos-container">
-            <p style="text-align: center; width: 100%; color: var(--text-muted);">Chargement des projets...</p>
+            <p style="text-align: center; width: 100%; color: var(--text-muted);">Chargement...</p>
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
@@ -348,18 +389,17 @@
         <div class="glass-card" style="max-width: 700px; margin: 0 auto;">
             <h2 class="section-title">Travaillons Ensemble</h2>
             <p style="margin-bottom: 2rem; color: #cbd5e1;">
-                Passionné par le code propre et l'innovation en IA. <br>
                 Disponible pour un stage de 12 semaines à partir du 7 avril 2026.
             </p>
             <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <a href="mailto:oussama.abid@viacesi.fr" class="btn btn-primary">m'envoyer un email</a>
+                <a href="mailto:oussama.abid@viacesi.fr" class="btn btn-primary">Me contacter</a>
                 <a href="https://www.linkedin.com/in/oussama-abid-529163339" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Oussama Abid • Full Stack & AI Engineer</p>
+        <p>&copy; 2025 Oussama Abid • Full Stack Developer</p>
     </footer>
 
     <script>
